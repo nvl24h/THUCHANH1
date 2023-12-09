@@ -18,20 +18,20 @@ const validatePassword = function (password) {
         .validate(password, { list: true });
 };
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
     email: {
         type: String,
         trim: true,
         lowercase: true,
         unique: true,
         required: 'Email address is required',
-        validate: [validateEmail, 'Please fill a valid email address'],
+        // validate: [validateEmail, 'Please fill a valid email address'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
     password: {
         type: String,
         required: 'Password is required',
-        validate: [validatePassword, 'Please fill a valid password'],
+        // validate: [validatePassword, 'Please fill a valid password'],
 
     },
     coin: {
